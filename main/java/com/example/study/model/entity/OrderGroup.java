@@ -47,5 +47,7 @@ public class OrderGroup {
 
     private String updatedBy;
 
+    private Long userId;
+
 
 }
