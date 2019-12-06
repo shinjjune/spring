@@ -28,7 +28,7 @@ public class ItemRepositoryTest extends StudyApplicationTests {
         item.setRegisteredAt(LocalDateTime.now());
         item.setCreatedAt(LocalDateTime.now());
         item.setCreatedBy("Partner01");
-        item.setPartnerId(2L);
+//        item.setPartnerId(2L);
 
         Item newItem = itemRepository.save(item);
         Assert.assertNotNull(newItem);
