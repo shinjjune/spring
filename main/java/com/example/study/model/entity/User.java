@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
-@ToString
+@ToString(exclude = {"orderGroup"})
 public class User {
 
     @Id
@@ -43,4 +43,7 @@ public class User {
 
     private String updatedBy;
 
+    // User 1 : N OrderGroup
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<OrderGroup> orderGroupList;
 }

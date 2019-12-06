@@ -27,8 +27,8 @@ public class OrderDetailRepositoryTest extends StudyApplicationTests {
 
 //        orderDetail.setOrderAt(LocalDateTime.now());
 
-        orderDetail.setOrderGroupId(1L);
-        orderDetail.setItemId(1L);
+//        orderDetail.setOrderGroupId(1L);
+//        orderDetail.setItemId(1L);
 
         OrderDetail newOrderDetail = orderDetailRepository.save(orderDetail);
         Assert.assertNotNull(newOrderDetail);
