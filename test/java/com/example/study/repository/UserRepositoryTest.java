@@ -19,11 +19,11 @@ public class UserRepositoryTest extends StudyApplicationTests {
 
     @Test
     public void create(){
-        String account = "Test02";
-        String password = "Test02";
+        String account = "Test03";
+        String password = "Test03";
         String status = "REGISTERED";
         String email = "Test02@gmail.com";
-        String phoneNumber = "010-1111-2222";
+        String phoneNumber = "010-3333-4444";
         LocalDateTime registeredAt = LocalDateTime.now();
         LocalDateTime createdAt = LocalDateTime.now();
         String createdBy = "Admin";
@@ -35,11 +35,16 @@ public class UserRepositoryTest extends StudyApplicationTests {
         user.setEmail(email);
         user.setPhoneNumber(phoneNumber);
         user.setRegisteredAt(registeredAt);
-        user.setCreatedAt(createdAt);
-        user.setCreatedBy(createdBy);
+
+//        builder
+        User u = user.builder()
+                .account(account)
+                .password(password)
+                .status(status)
+                .email(email)
+                .build();
 
         User newUser = userRepository.save(user);
-
         Assert.assertNotNull(newUser);
 
 
@@ -51,6 +56,10 @@ public class UserRepositoryTest extends StudyApplicationTests {
     public void read(){
 
         User user = userRepository.findFirstByPhoneNumberOrderByIdDesc("010-1111-2222");
+//          chain pattern
+//        user.setEmail("").setPhoneNumber("").setStatus("");
+//
+//        User u = new User().setAccount("").setEmail("").setPassword("");
 
         if(user != null) {
             user.getOrderGroupList().stream().forEach(orderGroup -> {
